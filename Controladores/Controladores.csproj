@@ -44,5 +44,11 @@
     <Compile Include="PersonaControlador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{5c482fa9-70e1-4e66-b291-4682c13ba4e0}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
