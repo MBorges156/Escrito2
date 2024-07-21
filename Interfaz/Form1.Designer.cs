@@ -30,15 +30,16 @@ namespace Interfaz
         private void InitializeComponent()
         {
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.txtbID = new System.Windows.Forms.TextBox();
-            this.txtbNombre = new System.Windows.Forms.TextBox();
-            this.txtbApellido = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblIdentificacion = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
-            this.lstPersonas = new System.Windows.Forms.ListBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.tablaDeDatos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDeDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegistrar
@@ -49,27 +50,29 @@ namespace Interfaz
             this.btnRegistrar.TabIndex = 0;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click_1);
             // 
-            // txtbID
+            // txtID
             // 
-            this.txtbID.Location = new System.Drawing.Point(97, 132);
-            this.txtbID.Name = "txtbID";
-            this.txtbID.Size = new System.Drawing.Size(100, 20);
-            this.txtbID.TabIndex = 1;
+            this.txtID.Location = new System.Drawing.Point(97, 132);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.TabIndex = 1;
+            this.txtID.TextChanged += new System.EventHandler(this.txtbID_TextChanged);
             // 
-            // txtbNombre
+            // txtNombre
             // 
-            this.txtbNombre.Location = new System.Drawing.Point(97, 168);
-            this.txtbNombre.Name = "txtbNombre";
-            this.txtbNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtbNombre.TabIndex = 2;
+            this.txtNombre.Location = new System.Drawing.Point(97, 168);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 2;
             // 
-            // txtbApellido
+            // txtApellido
             // 
-            this.txtbApellido.Location = new System.Drawing.Point(97, 204);
-            this.txtbApellido.Name = "txtbApellido";
-            this.txtbApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtbApellido.TabIndex = 3;
+            this.txtApellido.Location = new System.Drawing.Point(97, 204);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 3;
             // 
             // lblIdentificacion
             // 
@@ -99,14 +102,6 @@ namespace Interfaz
             this.lblApellido.Text = "Apellido";
             this.lblApellido.Click += new System.EventHandler(this.label3_Click);
             // 
-            // lstPersonas
-            // 
-            this.lstPersonas.FormattingEnabled = true;
-            this.lstPersonas.Location = new System.Drawing.Point(295, 129);
-            this.lstPersonas.Name = "lstPersonas";
-            this.lstPersonas.Size = new System.Drawing.Size(120, 95);
-            this.lstPersonas.TabIndex = 7;
-            // 
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(117, 254);
@@ -125,24 +120,36 @@ namespace Interfaz
             this.btnBorrar.TabIndex = 9;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // tablaDeDatos
+            // 
+            this.tablaDeDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaDeDatos.Location = new System.Drawing.Point(340, 127);
+            this.tablaDeDatos.Name = "tablaDeDatos";
+            this.tablaDeDatos.Size = new System.Drawing.Size(240, 150);
+            this.tablaDeDatos.TabIndex = 10;
+            this.tablaDeDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tablaDeDatos);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.lstPersonas);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblIdentificacion);
-            this.Controls.Add(this.txtbApellido);
-            this.Controls.Add(this.txtbNombre);
-            this.Controls.Add(this.txtbID);
+            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnRegistrar);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDeDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,15 +158,15 @@ namespace Interfaz
         #endregion
 
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.TextBox txtbID;
-        private System.Windows.Forms.TextBox txtbNombre;
-        private System.Windows.Forms.TextBox txtbApellido;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblIdentificacion;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.ListBox lstPersonas;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.DataGridView tablaDeDatos;
     }
 }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
@@ -14,14 +14,14 @@ namespace Modelo
         public string NombreDeUsuario;
         public string Password;
 
-        public string MySqlConnection Conexion; 
+        public MySqlConnection Conexion;
         public MySqlCommand Comando;
         public MySqlDataReader Lector;
 
         public Modelo()
         {
-            this.IP = "127.0.0.1";
-            this.NombreBase = "Personas";
+            this.IP = "localhost";
+            this.NombreBase = "personas";
             this.Password = "";
             this.NombreDeUsuario = "root";
 
@@ -37,8 +37,8 @@ namespace Modelo
             this.Comando = new MySqlCommand();
             this.Comando.Connection = this.Conexion;
 
-
         }
+
 
     }
 }
